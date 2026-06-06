@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Button?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.VoitureController"
+      spacing="10"
+      alignment="CENTER">
+
+    <TextField fx:id="txtMarque"
+               promptText="Marque"/>
+
+    <TextField fx:id="txtModele"
+               promptText="Modèle"/>
+
+    <TextField fx:id="txtMatricule"
+               promptText="Matricule"/>
+
+    <TextField fx:id="txtPrix"
+               promptText="Prix par jour"/>
+
+    <ComboBox fx:id="cmbStatut"/>
+
+    <Button text="Ajouter"
+            onAction="#ajouterVoiture"/>
+
+</VBox>

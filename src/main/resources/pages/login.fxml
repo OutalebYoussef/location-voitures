@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.LoginController"
+      alignment="CENTER"
+      spacing="15">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Location de Voitures"/>
+
+    <TextField fx:id="txtUsername"
+               promptText="Username"/>
+
+    <PasswordField fx:id="txtPassword"
+                   promptText="Password"/>
+
+    <Button text="Se connecter"
+            onAction="#login"/>
+
+</VBox>
