@@ -7,8 +7,8 @@
 <?import javafx.scene.control.Button?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
-      fx:controller="controllers.VoitureController"
-      spacing="10"
+      fx:controller="controllers.voitures.AddVoitureController"
+      spacing="12"
       alignment="CENTER">
 
     <TextField fx:id="txtMarque"
@@ -26,6 +26,6 @@
     <ComboBox fx:id="cmbStatut"/>
 
     <Button text="Ajouter"
-            onAction="#ajouterVoiture"/>
+            onAction="#ajouterVoiture" styleClass="btn,btn-primary"/>
 
 </VBox>

@@ -39,7 +39,7 @@ public class LoginController {
                         )
                 );
 
-                stage.setScene(new Scene(loader.load()));
+                  txtUsername.getScene().setRoot(loader.load());
 
             } else if ("user".equalsIgnoreCase(role)) {
 
@@ -49,7 +49,7 @@ public class LoginController {
                         )
                 );
 
-                stage.setScene(new Scene(loader.load()));
+                  txtUsername.getScene().setRoot(loader.load());
 
             } else {
 

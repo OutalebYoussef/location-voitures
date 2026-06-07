@@ -57,14 +57,9 @@ public class AdminDashboardController {
 
             Parent root = loader.load();
 
-            Scene scene = new Scene(root, 700, 450);
+            Node source = (Node) event.getSource();
 
-            Stage stage = (Stage) ((javafx.scene.Node)
-                    event.getSource()).getScene().getWindow();
-
-            stage.setScene(scene);
-            stage.setTitle("Connexion");
-            stage.show();
+            source.getScene().setRoot(root);
 
         } catch (Exception e) {
             e.printStackTrace();

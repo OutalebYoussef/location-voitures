@@ -2,11 +2,13 @@ package model;
 
 public class Voiture {
     private int id;
+    private int addBy;
     private String marque;
     private String modele;
     private String matricule;
     private double prixJour;
     private String statut;
+    private String username;
 
     public Voiture() {}
 
@@ -26,6 +28,14 @@ public class Voiture {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getAddBy() {
+        return addBy;
+    }
+
+    public void setAddBy(int addBy) {
+        this.addBy = addBy;
     }
 
     public String getMarque() {
@@ -66,5 +76,13 @@ public class Voiture {
 
     public void setStatut(String statut) {
         this.statut = statut;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

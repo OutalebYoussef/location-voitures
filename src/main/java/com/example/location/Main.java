@@ -5,8 +5,13 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import org.kordamp.bootstrapfx.BootstrapFX;
 
 public class Main extends Application {
+
+    public static void applyStyles(Scene scene) {
+        scene.getStylesheets().add(BootstrapFX.bootstrapFXStylesheet());
+    }
 
     @Override
     public void start(Stage stage) throws Exception {
@@ -19,6 +24,8 @@ public class Main extends Application {
         Parent root = loader.load();
 
         Scene scene = new Scene(root, 700, 450);
+
+        scene.getStylesheets().add(BootstrapFX.bootstrapFXStylesheet());
 
         stage.setTitle("Location de Voitures");
         stage.setScene(scene);

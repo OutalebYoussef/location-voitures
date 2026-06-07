@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Button?>
+<VBox spacing="10" alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.voitures.EditVoitureController">
+
+    <TextField fx:id="marqueField" promptText="Marque"/>
+    <TextField fx:id="modeleField" promptText="Modele"/>
+    <TextField fx:id="matriculeField" promptText="Matricule"/>
+    <TextField fx:id="prixField" promptText="Prix/Jour"/>
+    <TextField fx:id="statutField" promptText="Statut"/>
+
+    <Button text="Modifier" onAction="#save"/>
+</VBox>

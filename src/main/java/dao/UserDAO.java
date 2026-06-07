@@ -1,6 +1,7 @@
 package dao;
 
 import database.DBConnection;
+import utils.Session;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +11,7 @@ public class UserDAO {
 
     public String login(String username, String password) {
 
-        String sql = "SELECT role FROM users WHERE username=? AND password=?";
+        String sql = "SELECT * FROM users WHERE username=? AND password=?";
 
         try (
                 Connection con = DBConnection.getConnection();
@@ -23,6 +24,10 @@ public class UserDAO {
             ResultSet rs = ps.executeQuery();
 
             if (rs.next()) {
+                Session.setUserId(rs.getInt("id"));
+                Session.setUsername(rs.getString("username"));
+                Session.setRole(rs.getString("role"));
+
                 return rs.getString("role");
             }
 

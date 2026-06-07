@@ -13,15 +13,19 @@
         <Insets top="20" right="20" bottom="20" left="20"/>
     </padding>
 
-    <Label text="Location de Voitures"/>
+    <Label text="Location de Voitures"
+           styleClass="h2"/>
 
     <TextField fx:id="txtUsername"
-               promptText="Username"/>
+               promptText="Username"
+               styleClass="form-control"/>
 
     <PasswordField fx:id="txtPassword"
-                   promptText="Password"/>
+                   promptText="Password"
+                   styleClass="form-control"/>
 
     <Button text="Se connecter"
-            onAction="#login"/>
+            onAction="#login"
+            styleClass="btn,btn-primary"/>
 
 </VBox>
