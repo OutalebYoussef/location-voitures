@@ -9,6 +9,7 @@ public class Voiture {
     private double prixJour;
     private String statut;
     private String username;
+    private String imagePath;
 
     public Voiture() {}
 
@@ -20,6 +21,14 @@ public class Voiture {
         this.matricule = matricule;
         this.prixJour = prixJour;
         this.statut = statut;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
     public int getId() {

@@ -6,9 +6,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 
 public class AdminDashboardController {
 
@@ -22,12 +20,12 @@ public class AdminDashboardController {
 
     @FXML
     public void showVoitures() {
-        loadPage("/pages/admin/voitures.fxml");
+        loadPage("/pages/admin/voitures/voitures.fxml");
     }
 
     @FXML
     public void showUsers() {
-        loadPage("/pages/admin/users.fxml");
+        loadPage("/pages/admin/users/users.fxml");
     }
 
     private void loadPage(String path) {

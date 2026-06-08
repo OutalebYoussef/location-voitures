@@ -7,10 +7,14 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Voiture;
+
+import java.io.File;
 
 public class VoitureController {
 
@@ -34,6 +38,9 @@ public class VoitureController {
 
     @FXML
     private TableColumn<Voiture, String> colStatut;
+
+    @FXML
+    private TableColumn<Voiture, String> colImage;
 
     @FXML
     private TableColumn<Voiture, String> addBy;
@@ -72,6 +79,51 @@ public class VoitureController {
         VoitureDAO dao = new VoitureDAO();
 
         tableVoitures.getItems().setAll(dao.getVoitures());
+
+        colImage.setCellValueFactory(
+                new PropertyValueFactory<>("imagePath")
+        );
+        colImage.setCellFactory(column -> new TableCell<>() {
+
+            private final ImageView imageView =
+                    new ImageView();
+
+            {
+                imageView.setFitWidth(80);
+                imageView.setFitHeight(50);
+                imageView.setPreserveRatio(true);
+            }
+
+            @Override
+            protected void updateItem(String item, boolean empty) {
+
+                super.updateItem(item, empty);
+
+                if (empty || item == null) {
+
+                    setGraphic(null);
+
+                } else {
+
+                    try {
+
+                        imageView.setImage(
+                                new Image(
+                                        new File(item)
+                                                .toURI()
+                                                .toString()
+                                )
+                        );
+
+                        setGraphic(imageView);
+
+                    } catch (Exception e) {
+
+                        setGraphic(null);
+                    }
+                }
+            }
+        });
 
         delAction.setCellFactory(param -> new TableCell<>() {
 

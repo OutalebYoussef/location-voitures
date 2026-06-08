@@ -6,6 +6,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Button?>
 
+<?import javafx.scene.control.Label?>
 <VBox xmlns:fx="http://javafx.com/fxml"
       fx:controller="controllers.voitures.AddVoitureController"
       spacing="12"
@@ -22,6 +23,11 @@
 
     <TextField fx:id="txtPrix"
                promptText="Prix par jour"/>
+
+    <Button text="Choisir Image"
+            onAction="#chooseImage"/>
+
+    <Label fx:id="lblImage"/>
 
     <ComboBox fx:id="cmbStatut"/>
 

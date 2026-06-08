@@ -27,6 +27,9 @@ public class Main extends Application {
 
         scene.getStylesheets().add(BootstrapFX.bootstrapFXStylesheet());
 
+        String css = getClass().getResource("/css/cards.css").toExternalForm();
+        scene.getStylesheets().add(css);
+
         stage.setTitle("Location de Voitures");
         stage.setScene(scene);
         stage.show();

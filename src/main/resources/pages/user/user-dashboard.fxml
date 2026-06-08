@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.UserDashboardController">
+
+    <!-- Header -->
+    <HBox fx:id="navbar"
+          alignment="CENTER_LEFT"
+          style="-fx-padding: 20 24 12 24; -fx-background-color: white; -fx-border-color: #e0e0e0; -fx-border-width: 0 0 1 0;">
+
+        <Label text="Location de Voitures"
+               style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #1a1a1a;"/>
+
+        <Region HBox.hgrow="ALWAYS"/>
+
+        <Button text="Voitures"
+                onAction="#ouvrirVoitures"
+                style="-fx-background-color: #1565C0;
+                       -fx-text-fill: white;
+                       -fx-font-size: 13px;
+                       -fx-background-radius: 8;
+                       -fx-padding: 8 16;
+                       -fx-cursor: hand;"/>
+
+        <Button text="Mes Réservations"
+                onAction="#ouvrirMesReservations"
+                style="-fx-background-color: #1565C0;
+                       -fx-text-fill: white;
+                       -fx-font-size: 13px;
+                       -fx-background-radius: 8;
+                       -fx-padding: 8 16;
+                       -fx-cursor: hand;"/>
+
+    </HBox>
+
+    <!-- Cars grid -->
+    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+        <FlowPane fx:id="carsContainer"
+                  hgap="16"
+                  vgap="16"
+                  prefWrapLength="1100"
+                  style="-fx-padding: 24;"/>
+    </ScrollPane>
+
+</VBox>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.CarCardController"
+      spacing="0"
+      prefWidth="220"
+      styleClass="car-card">
+
+    <ImageView fx:id="imgCar"
+               fitWidth="220"
+               fitHeight="135"
+               preserveRatio="false"/>
+
+    <VBox spacing="4" style="-fx-padding: 10 12 12 12;">
+        <Label fx:id="lblTitle" styleClass="car-title"/>
+        <Label fx:id="lblPrix"  styleClass="car-price"/>
+        <Button text="Réserver"
+                onAction="#reserver"
+                maxWidth="Infinity"
+                styleClass="btn-reserve"/>
+    </VBox>
+</VBox>

@@ -1,0 +1,39 @@
+.car-card {
+    -fx-background-color: white;
+    -fx-background-radius: 12;
+    -fx-border-color: #e0e0e0;
+    -fx-border-radius: 12;
+    -fx-border-width: 1;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.08), 8, 0, 0, 2);
+}
+
+.car-card:hover {
+    -fx-border-color: #bdbdbd;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.14), 12, 0, 0, 3);
+}
+
+.car-title {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1a1a1a;
+}
+
+.car-price {
+    -fx-font-size: 15px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1565C0;
+    -fx-padding: 4 0 6 0;
+}
+
+.btn-reserve {
+    -fx-background-color: #1565C0;
+    -fx-text-fill: white;
+    -fx-font-size: 13px;
+    -fx-background-radius: 8;
+    -fx-padding: 8 0;
+    -fx-cursor: hand;
+}
+
+.btn-reserve:hover {
+    -fx-background-color: #0D47A1;
+}

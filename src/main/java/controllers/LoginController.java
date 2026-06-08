@@ -4,7 +4,6 @@ import com.example.location.Main;
 import dao.UserDAO;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
@@ -45,7 +44,7 @@ public class LoginController {
 
                 FXMLLoader loader = new FXMLLoader(
                         Main.class.getResource(
-                                "/pages/user-dashboard.fxml"
+                                "/pages/user/user-dashboard.fxml"
                         )
                 );
 

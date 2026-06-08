@@ -8,6 +8,11 @@ import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import model.Voiture;
 import utils.Session;
+import javafx.stage.FileChooser;
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
 
 public class AddVoitureController {
 
@@ -22,6 +27,11 @@ public class AddVoitureController {
 
     @FXML
     private TextField txtPrix;
+
+    @FXML
+    private Label lblImage;
+
+    private String imagePath;
 
     @FXML
     private ComboBox<String> cmbStatut;
@@ -78,6 +88,7 @@ public class AddVoitureController {
             );
             voiture.setStatut(cmbStatut.getValue());
             voiture.setAddBy(Session.getUserId());
+            voiture.setImagePath(imagePath);
 
             VoitureDAO dao = new VoitureDAO();
 
@@ -102,5 +113,53 @@ public class AddVoitureController {
         }
     }
 
+    @FXML
+    public void chooseImage() {
 
+        FileChooser chooser = new FileChooser();
+
+        chooser.getExtensionFilters().add(
+                new FileChooser.ExtensionFilter(
+                        "Images",
+                        "*.png",
+                        "*.jpg",
+                        "*.jpeg"
+                )
+        );
+
+        File file = chooser.showOpenDialog(null);
+
+        if (file != null) {
+
+            try {
+
+                File dir = new File("images");
+
+                if (!dir.exists()) {
+                    dir.mkdirs();
+                }
+
+                String fileName =
+                        System.currentTimeMillis()
+                                + "_"
+                                + file.getName();
+
+                Path destination =
+                        Path.of("images", fileName);
+
+                Files.copy(
+                        file.toPath(),
+                        destination,
+                        StandardCopyOption.REPLACE_EXISTING
+                );
+
+                imagePath = destination.toString();
+
+                lblImage.setText(fileName);
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
 }

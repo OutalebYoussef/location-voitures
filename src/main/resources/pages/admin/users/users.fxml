@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.users.UserController"
+      fx:id="contentPane"
+      alignment="CENTER">
+
+    <Label text="Gestion des Voitures"/>
+
+    <Button text="Ajouter Voiture"
+            onAction="#addUser" styleClass="btn,btn-primary"/>
+
+    <TableView fx:id="tableUsers" editable="true">
+
+        <columns>
+            <TableColumn fx:id="colId" text="ID"/>
+            <TableColumn fx:id="colUsername"
+                         text="Username"/>
+            <TableColumn fx:id="colRole"
+                         text="Role"/>
+            <TableColumn fx:id="editAction"
+                         text="Modifier"/>
+            <TableColumn fx:id="delAction"
+                         text="Supprimer"/>
+        </columns>
+
+    </TableView>
+
+</VBox>
