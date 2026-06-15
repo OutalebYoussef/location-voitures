@@ -1,10 +1,21 @@
 package controllers;
 
+import controllers.reservations.ReservationController;
+import dao.ReservationDAO;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import model.Reservation;
 import model.Voiture;
+import utils.Session;
 
 import java.io.File;
 
@@ -37,6 +48,39 @@ public class CarCardController {
 
     @FXML
     private void reserver() {
-        System.out.println("Réservation: " + voiture.getId());
+
+        try {
+
+            FXMLLoader loader =
+                    new FXMLLoader(
+                            getClass().getResource(
+                                    "/pages/user/reservation-modal.fxml"
+                            )
+                    );
+
+            Parent root = loader.load();
+
+            ReservationController controller =
+                    loader.getController();
+
+            controller.setVoiture(voiture);
+
+            Stage stage = new Stage();
+
+            stage.setTitle("Réservation");
+
+            stage.setScene(
+                    new Scene(root)
+            );
+
+            stage.initModality(
+                    Modality.APPLICATION_MODAL
+            );
+
+            stage.showAndWait();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }
