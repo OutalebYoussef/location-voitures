@@ -14,10 +14,14 @@ public class Reservation {
     private double montantTotal;
     private String username;
     private String voiture;
+    private String marque;
+    private String modele;
+    private String imagePath;
 
-    public Reservation() {}
+    public Reservation() {
+    }
 
-    public Reservation(int id, int userId, int voitureId, int nbJr, String status, Timestamp dateReservation, LocalDate dateDebut, double montantTotal, String username, String voiture) {
+    public Reservation(int id, int userId, int voitureId, int nbJr, String status, Timestamp dateReservation, LocalDate dateDebut, double montantTotal, String username, String voiture, String marque, String modele, String imagePath) {
         this.id = id;
         this.userId = userId;
         this.voitureId = voitureId;
@@ -28,6 +32,9 @@ public class Reservation {
         this.montantTotal = montantTotal;
         this.username = username;
         this.voiture = voiture;
+        this.marque = marque;
+        this.modele = modele;
+        this.imagePath = imagePath;
     }
 
     public int getId() {
@@ -97,6 +104,7 @@ public class Reservation {
     public String getUsername() {
         return username;
     }
+
     public void setUsername(String username) {
         this.username = username;
     }
@@ -109,5 +117,27 @@ public class Reservation {
         this.voiture = voiture;
     }
 
+    public String getMarque() {
+        return marque;
+    }
 
+    public void setMarque(String marque) {
+        this.marque = marque;
+    }
+
+    public String getModele() {
+        return modele;
+    }
+
+    public void setModele(String modele) {
+        this.modele = modele;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
 }

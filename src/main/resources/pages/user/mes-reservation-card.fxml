@@ -1,0 +1,24 @@
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Label?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.reservations.ReservationCardController"
+      spacing="10"
+      prefWidth="260"
+      styleClass="card">
+
+    <ImageView fx:id="image"
+               fitWidth="240"
+               fitHeight="150"
+               preserveRatio="true"/>
+
+    <Label fx:id="nomVoiture"/>
+
+    <Label fx:id="jours"/>
+
+    <Label fx:id="montant"/>
+
+    <Label fx:id="status"/>
+
+</VBox>

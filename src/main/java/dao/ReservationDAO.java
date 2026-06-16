@@ -40,28 +40,50 @@ public class ReservationDAO {
         return false;
     }
 
-    public List<Reservation> getMesReservations() {
-        List<Reservation> reservations = new ArrayList<>();
-        String sql = "SELECT * FROM reservations r join voitures v on v.id=r.voiture_id WHERE user_id = ?";
+    public List<Reservation> getMesReservations(int userId) {
 
-        try (
-            Connection con = DBConnection.getConnection();
-            PreparedStatement ps = con.prepareStatement(sql);
-            ResultSet rs = ps.executeQuery()
-        ){
-            while (rs.next()){
-                Reservation reservation = new Reservation();
-                reservation.setId(rs.getInt("id"));
-                reservation.setUserId(rs.getInt("user_id"));
-                reservation.setVoitureId(rs.getInt("voiture_id"));
-                reservation.setNbJr(rs.getInt("nb_jr"));
-                reservation.setStatus(rs.getString("status"));
-                reservation.setDateReservation(rs.getTimestamp("date_reservation"));
-                reservations.add(reservation);
+        List<Reservation> list = new ArrayList<>();
+
+        String sql = """
+        SELECT r.*,
+               v.marque,
+               v.modele,
+               v.prix_jour,
+               v.image_path
+        FROM reservations r
+        JOIN voitures v
+            ON r.voiture_id=v.id
+        WHERE r.user_id=?
+        ORDER BY r.date_reservation DESC
+        """;
+
+        try(Connection cn=DBConnection.getConnection();
+            PreparedStatement ps=cn.prepareStatement(sql)) {
+
+            ps.setInt(1,userId);
+
+            ResultSet rs=ps.executeQuery();
+
+            while(rs.next()){
+
+                Reservation r=new Reservation();
+
+                r.setId(rs.getInt("id"));
+                r.setVoitureId(rs.getInt("voiture_id"));
+                r.setNbJr(rs.getInt("nb_jr"));
+                r.setMontantTotal(rs.getDouble("montant_total"));
+                r.setStatus(rs.getString("status"));
+                r.setImagePath(rs.getString("image_path"));
+                r.setMarque(rs.getString("marque"));
+                r.setModele(rs.getString("modele"));
+
+                list.add(r);
             }
-        }catch (Exception e){
+
+        }catch(Exception e){
             e.printStackTrace();
         }
-        return reservations;
+
+        return list;
     }
 }
