@@ -5,7 +5,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <VBox spacing="10" alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="controllers.users.EditUserController">
+      fx:controller="controllers.admin.users.EditUserController">
 
     <TextField fx:id="usernameField"/>
     <TextField fx:id="passwordField"/>

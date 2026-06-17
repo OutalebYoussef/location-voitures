@@ -40,6 +40,32 @@ public class UserDAO {
         return null;
     }
 
+    public boolean register(User user) {
+
+        String sql = """
+        INSERT INTO users
+        (username,email,num_phone,password,role)
+        VALUES(?,?,?,?,?)
+    """;
+
+        try(Connection cn = DBConnection.getConnection();
+            PreparedStatement ps = cn.prepareStatement(sql)) {
+
+            ps.setString(1, user.getUsername());
+            ps.setString(2, user.getEmail());
+            ps.setString(3, user.getNumPhone());
+            ps.setString(4, user.getPassword());
+            ps.setString(5, "user");
+
+            return ps.executeUpdate() > 0;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
     public boolean ajouter(User user) {
 
         String sql = """
@@ -175,5 +201,31 @@ public class UserDAO {
         }
 
         return false;
+    }
+
+    //   for dashboard admin
+    public int countUsers() {
+
+        String sql = """
+                    SELECT COUNT(*) AS total
+                    FROM users
+                    WHERE role = 'USER'
+                """;
+
+        try (
+                Connection con = DBConnection.getConnection();
+                PreparedStatement ps = con.prepareStatement(sql);
+                ResultSet rs = ps.executeQuery()
+        ) {
+
+            if (rs.next()) {
+                return rs.getInt("total");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return 0;
     }
 }

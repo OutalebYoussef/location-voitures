@@ -1,4 +1,4 @@
-package controllers.users;
+package controllers.admin.users;
 
 import dao.UserDAO;
 import javafx.fxml.FXML;

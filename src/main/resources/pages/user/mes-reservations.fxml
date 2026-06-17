@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.FlowPane?>
 
 <ScrollPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controllers.reservations.MesReservationsController"
+            fx:controller="controllers.user.reservations.MesReservationsController"
             fitToWidth="true">
 
     <content>

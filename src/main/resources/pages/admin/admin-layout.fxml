@@ -5,8 +5,9 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.layout.StackPane?>
 <BorderPane xmlns:fx="http://javafx.com/fxml"
-            fx:controller="controllers.AdminDashboardController">
+            fx:controller="controllers.admin.AdminLayoutController">
 
     <left>
         <VBox spacing="10"
@@ -28,6 +29,10 @@
                     maxWidth="Infinity"
                     onAction="#showUsers"/>
 
+            <Button text="Réservations"
+                    maxWidth="Infinity"
+                    onAction="#showReservations"/>
+
             <Button text="Déconnexion"
                     maxWidth="Infinity"
                     onAction="#logout"/>
@@ -36,12 +41,12 @@
     </left>
 
     <center>
-        <VBox fx:id="contentPane"
-              alignment="CENTER">
-
-            <Label text="Bienvenue Admin"/>
-
-        </VBox>
+        <StackPane fx:id="contentPane"
+                   VBox.vgrow="ALWAYS"
+                   style="
+                 -fx-background-color: #F0F4F8;
+                 -fx-padding: 28 28 28 28;
+               "/>
     </center>
 
 </BorderPane>

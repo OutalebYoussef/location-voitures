@@ -18,7 +18,7 @@ public class Main extends Application {
 
         FXMLLoader loader =
                 new FXMLLoader(
-                        getClass().getResource("/pages/login.fxml")
+                        getClass().getResource("/pages/guest/index.fxml")
                 );
 
         Parent root = loader.load();

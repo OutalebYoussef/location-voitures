@@ -7,30 +7,67 @@
 
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.layout.HBox?>
 <VBox xmlns:fx="http://javafx.com/fxml"
-      fx:controller="controllers.voitures.VoitureController"
-      fx:id="contentPane"
-      alignment="CENTER">
+      fx:controller="controllers.admin.voitures.VoitureController"
+      fx:id="contentPane">
 
-    <Label text="Gestion des Voitures"/>
+    <HBox spacing="10" alignment="CENTER_LEFT"
+          style="-fx-background-color: white;
+                 -fx-background-radius: 10;
+                 -fx-padding: 14 18;
+                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 6, 0, 0, 1);">
+        <Label text="Gestion des Voitures"/>
 
-    <Button text="Ajouter Voiture"
-            onAction="#addVoiture" styleClass="btn,btn-primary"/>
+        <Button text="Ajouter Voiture"
+                onAction="#addVoiture" style="-fx-background-color: #3498db;
+                       -fx-text-fill: white;
+                       -fx-font-size: 13;
+                       -fx-font-weight: bold;
+                       -fx-background-radius: 8;
+                       -fx-padding: 8 18;
+                       -fx-cursor: hand;"/>
+    </HBox>
 
-    <TableView fx:id="tableVoitures" editable="true">
+    <TableView fx:id="tableVoitures" editable="true"
+               VBox.vgrow="ALWAYS"
+               style="-fx-background-color: white;
+                      -fx-background-radius: 12;
+                      -fx-border-color: transparent;
+                      -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 6, 0, 0, 1);
+                      -fx-table-cell-border-color: #f0f2f5;">
 
         <columns>
 
-            <TableColumn fx:id="colId" text="ID"/>
-            <TableColumn fx:id="colMarque" text="Marque"/>
-            <TableColumn fx:id="colModele" text="Modèle"/>
-            <TableColumn fx:id="colMatricule" text="Matricule"/>
-            <TableColumn fx:id="colPrix" text="Prix/Jour"/>
-            <TableColumn fx:id="colImage" text="Image" prefWidth="120"/>
-            <TableColumn fx:id="addBy" text="Ajouter par"/>
-            <TableColumn fx:id="colStatut" text="Statut"/>
-            <TableColumn text="Action" fx:id="editAction"/>
-            <TableColumn text="Action" fx:id="delAction"/>
+            <TableColumn fx:id="colId" text="ID"
+                         prefWidth="110"
+                         style="-fx-font-size: 13; -fx-text-fill: #555f6d;"/>
+            <TableColumn fx:id="colMarque" text="Marque"
+                         prefWidth="110"
+                         style="-fx-font-size: 13; -fx-text-fill: #555f6d;"/>
+            <TableColumn fx:id="colModele" text="Modèle"
+                         prefWidth="110"
+                         style="-fx-font-size: 13; -fx-text-fill: #555f6d;"/>
+            <TableColumn fx:id="colMatricule" text="Matricule"
+                         prefWidth="110"
+                         style="-fx-font-size: 13; -fx-text-fill: #555f6d;"/>
+            <TableColumn fx:id="colPrix" text="Prix/Jour"
+                         prefWidth="110"
+                         style="-fx-font-size: 13; -fx-text-fill: #555f6d;"/>
+            <TableColumn fx:id="colImage" text="Image"
+                         style="-fx-font-size: 13; -fx-text-fill: #555f6d;"/>
+            <TableColumn fx:id="addBy" text="Ajouter par"
+                         prefWidth="110"
+                         style="-fx-font-size: 13; -fx-text-fill: #555f6d;"/>
+            <TableColumn fx:id="colStatut" text="Statut"
+                         prefWidth="110"
+                         style="-fx-font-size: 13; -fx-text-fill: #555f6d;"/>
+            <TableColumn text="Action" fx:id="editAction"
+                         prefWidth="110"
+                         style="-fx-font-size: 13; -fx-text-fill: #555f6d;"/>
+            <TableColumn text="Action" fx:id="delAction"
+                         prefWidth="110"
+                         style="-fx-font-size: 13; -fx-text-fill: #555f6d;"/>
 
         </columns>
 

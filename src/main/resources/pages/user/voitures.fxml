@@ -3,7 +3,7 @@
 <?import javafx.scene.layout.FlowPane?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
-      fx:controller="controllers.voitures.UserVoitureController">
+      fx:controller="controllers.user.UserVoitureController">
 
     <!-- Cars grid -->
     <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">

@@ -3,9 +3,167 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TableColumn?>
 <VBox xmlns:fx="http://javafx.com/fxml"
-      alignment="CENTER">
+      spacing="20"
+      fx:controller="controllers.admin.AdminDashboardController"
+      style="-fx-background-color: #f4f6f9; -fx-padding: 24;">
 
-    <Label text="Dashboard"/>
+
+    <Label text="Dashboard"
+           style="-fx-font-size:24px;-fx-font-weight:bold;"/>
+
+    <HBox spacing="6">
+
+        <!-- Clients -->
+        <VBox spacing="6"
+              style="-fx-background-color: white;
+                     -fx-background-radius: 12;
+                     -fx-padding: 20;
+                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.07), 8, 0, 0, 2);"
+              HBox.hgrow="ALWAYS"
+              maxWidth="1.7976931348623157E308">
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <VBox alignment="CENTER"
+                      minWidth="46" minHeight="46"
+                      style="-fx-background-color: #fef4e5;
+                             -fx-background-radius: 10;">
+                    <Label text="🙍‍♂️"
+                           style="-fx-font-size: 20;"/>
+                </VBox>
+                <VBox spacing="2">
+                    <Label text="Clients"
+                           style="-fx-text-fill: #7f8c9a; -fx-font-size: 12;"/>
+                    <Label fx:id="lblUsers"
+                           text="0"
+                           style="-fx-text-fill: #1a2433; -fx-font-size: 26; -fx-font-weight: bold;"/>
+                </VBox>
+            </HBox>
+        </VBox>
+
+        <!-- Voitures -->
+        <VBox spacing="6"
+              style="-fx-background-color: white;
+                     -fx-background-radius: 12;
+                     -fx-padding: 20;
+                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.07), 8, 0, 0, 2);"
+              HBox.hgrow="ALWAYS"
+              maxWidth="1.7976931348623157E308">
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <VBox alignment="CENTER"
+                      minWidth="46" minHeight="46"
+                      style="-fx-background-color: #e8f8f0;
+                             -fx-background-radius: 10;">
+                    <Label text="🚗"
+                           style="-fx-font-size: 20;"/>
+                </VBox>
+                <VBox spacing="2">
+                    <Label text="Voitures"
+                           style="-fx-text-fill: #7f8c9a; -fx-font-size: 12;"/>
+                    <Label fx:id="lblVoitures"
+                           text="0"
+                           style="-fx-text-fill: #1a2433; -fx-font-size: 26; -fx-font-weight: bold;"/>
+                </VBox>
+            </HBox>
+        </VBox>
+
+        <!-- Total Réservations -->
+        <VBox spacing="6"
+              style="-fx-background-color: white;
+                     -fx-background-radius: 12;
+                     -fx-padding: 20;
+                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.07), 8, 0, 0, 2);"
+              HBox.hgrow="ALWAYS"
+              maxWidth="1.7976931348623157E308">
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <!-- Blue icon badge -->
+                <VBox alignment="CENTER"
+                      minWidth="46" minHeight="46"
+                      style="-fx-background-color: #ebf3fd;
+                             -fx-background-radius: 10;">
+                    <Label text="📅"
+                           style="-fx-font-size: 20;"/>
+                </VBox>
+                <VBox spacing="2">
+                    <Label text="Total réservations"
+                           style="-fx-text-fill: #7f8c9a; -fx-font-size: 12;"/>
+                    <Label fx:id="lblReservations"
+                           text="0"
+                           style="-fx-text-fill: #1a2433; -fx-font-size: 26; -fx-font-weight: bold;"/>
+                </VBox>
+            </HBox>
+        </VBox>
+
+        <!-- Revenus -->
+        <VBox spacing="6"
+              style="-fx-background-color: white;
+                     -fx-background-radius: 12;
+                     -fx-padding: 20;
+                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.07), 8, 0, 0, 2);"
+              HBox.hgrow="ALWAYS"
+              maxWidth="1.7976931348623157E308">
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <VBox alignment="CENTER"
+                      minWidth="46" minHeight="46"
+                      style="-fx-background-color: #fdecec;
+                             -fx-background-radius: 10;">
+                    <Label text="💵"
+                           style="-fx-font-size: 20;"/>
+                </VBox>
+                <VBox spacing="2">
+                    <Label text="Revenus"
+                           style="-fx-text-fill: #7f8c9a; -fx-font-size: 12;"/>
+                    <Label fx:id="lblRevenue"
+                           text="0"
+                           style="-fx-text-fill: #1a2433; -fx-font-size: 26; -fx-font-weight: bold;"/>
+                </VBox>
+            </HBox>
+        </VBox>
+
+    </HBox>
+
+    <Label text="Dernières réservations"
+           style="-fx-font-size:18px;-fx-font-weight:bold;"/>
+
+    <TableView fx:id="tableRecent" VBox.vgrow="ALWAYS"
+               style="-fx-background-color: white;
+                      -fx-background-radius: 12;
+                      -fx-border-color: transparent;
+                      -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 6, 0, 0, 1);
+                      -fx-table-cell-border-color: #f0f2f5;">
+
+        <columns>
+
+            <TableColumn fx:id="colClient"
+                         text="Client"
+                         prefWidth="110"
+                         style="-fx-font-size: 13; -fx-text-fill: #555f6d;"/>
+
+            <TableColumn fx:id="colVoiture"
+                         text="Voiture"
+                         prefWidth="110"
+                         style="-fx-font-size: 13; -fx-text-fill: #555f6d;"/>
+
+            <TableColumn fx:id="colDate"
+                         text="Date début"
+                         prefWidth="110"
+                         style="-fx-font-size: 13; -fx-text-fill: #555f6d;"/>
+
+            <TableColumn fx:id="colStatus"
+                         text="Status"
+                         prefWidth="110"
+                         style="-fx-font-size: 13; -fx-text-fill: #555f6d;"/>
+
+            <TableColumn fx:id="colMontant"
+                         text="Montant"
+                         prefWidth="110"
+                         style="-fx-font-size: 13; -fx-text-fill: #555f6d;"/>
+
+        </columns>
+
+    </TableView>
+
 
 </VBox>

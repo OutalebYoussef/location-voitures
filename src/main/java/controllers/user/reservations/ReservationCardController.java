@@ -1,4 +1,4 @@
-package controllers.reservations;
+package controllers.user.reservations;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;

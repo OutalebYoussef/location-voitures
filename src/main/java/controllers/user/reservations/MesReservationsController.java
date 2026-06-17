@@ -1,4 +1,4 @@
-package controllers.reservations;
+package controllers.user.reservations;
 
 import dao.ReservationDAO;
 import javafx.fxml.FXML;

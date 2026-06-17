@@ -1,4 +1,4 @@
-package controllers.voitures;
+package controllers.admin.voitures;
 
 import dao.VoitureDAO;
 import javafx.fxml.FXML;

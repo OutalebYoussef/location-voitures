@@ -7,28 +7,57 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
 
+<?import javafx.scene.layout.HBox?>
 <VBox xmlns:fx="http://javafx.com/fxml"
-      fx:controller="controllers.users.UserController"
-      fx:id="contentPane"
-      alignment="CENTER">
+      fx:controller="controllers.admin.users.UserController"
+      fx:id="contentPane">
 
-    <Label text="Gestion des Voitures"/>
+    <HBox spacing="10" alignment="CENTER_LEFT"
+          style="-fx-background-color: white;
+                 -fx-background-radius: 10;
+                 -fx-padding: 14 18;
+                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 6, 0, 0, 1);">
+        <Label text="Gestion des utilisateurs"/>
 
-    <Button text="Ajouter Voiture"
-            onAction="#addUser" styleClass="btn,btn-primary"/>
+        <Button text="Ajouter utilisateur"
+                onAction="#addUser" style="-fx-background-color: #3498db;
+                       -fx-text-fill: white;
+                       -fx-font-size: 13;
+                       -fx-font-weight: bold;
+                       -fx-background-radius: 8;
+                       -fx-padding: 8 18;
+                       -fx-cursor: hand;"/>
+    </HBox>
 
-    <TableView fx:id="tableUsers" editable="true">
+
+    <TableView fx:id="tableUsers" editable="true"
+               VBox.vgrow="ALWAYS"
+               style="-fx-background-color: white;
+                      -fx-background-radius: 12;
+                      -fx-border-color: transparent;
+                      -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 6, 0, 0, 1);
+                      -fx-table-cell-border-color: #f0f2f5;">
 
         <columns>
-            <TableColumn fx:id="colId" text="ID"/>
+            <TableColumn fx:id="colId" text="ID"
+                         prefWidth="110"
+                         style="-fx-font-size: 13; -fx-text-fill: #555f6d;"/>
             <TableColumn fx:id="colUsername"
-                         text="Username"/>
+                         text="Username"
+                         prefWidth="110"
+                         style="-fx-font-size: 13; -fx-text-fill: #555f6d;"/>
             <TableColumn fx:id="colRole"
-                         text="Role"/>
+                         text="Role"
+                         prefWidth="110"
+                         style="-fx-font-size: 13; -fx-text-fill: #555f6d;"/>
             <TableColumn fx:id="editAction"
-                         text="Modifier"/>
+                         text="Modifier"
+                         prefWidth="110"
+                         style="-fx-font-size: 13; -fx-text-fill: #555f6d;"/>
             <TableColumn fx:id="delAction"
-                         text="Supprimer"/>
+                         text="Supprimer"
+                         prefWidth="110"
+                         style="-fx-font-size: 13; -fx-text-fill: #555f6d;"/>
         </columns>
 
     </TableView>

@@ -14,10 +14,10 @@ public class VoitureDAO {
     public boolean ajouter(Voiture voiture) {
 
         String sql = """
-    INSERT INTO voitures
-    (marque, modele, matricule, prix_jour, statut, image_path, add_by)
-    VALUES (?, ?, ?, ?, ?, ?, ?)
-""";
+                    INSERT INTO voitures
+                    (marque, modele, matricule, prix_jour, statut, image_path, add_by)
+                    VALUES (?, ?, ?, ?, ?, ?, ?)
+                """;
 
         try (
                 Connection con = DBConnection.getConnection();
@@ -80,10 +80,10 @@ public class VoitureDAO {
     public boolean update(Voiture v) {
 
         String sql = """
-    UPDATE voitures
-    SET marque=?, modele=?, matricule=?, prix_jour=?, statut=?, image_path=?
-    WHERE id=?
-""";
+                    UPDATE voitures
+                    SET marque=?, modele=?, matricule=?, prix_jour=?, statut=?, image_path=?
+                    WHERE id=?
+                """;
 
         try (
                 Connection con = DBConnection.getConnection();
@@ -132,10 +132,10 @@ public class VoitureDAO {
         List<Voiture> voitures = new ArrayList<>();
 
         String sql = """
-        SELECT *
-        FROM voitures
-        WHERE statut='Disponible'
-    """;
+                    SELECT *
+                    FROM voitures
+                    WHERE statut='Disponible'
+                """;
 
         try (
                 Connection con = DBConnection.getConnection();
@@ -163,5 +163,64 @@ public class VoitureDAO {
         }
 
         return voitures;
+    }
+
+    //    for admin dashboard
+    public int countVoitures() {
+        String sql = """
+                    SELECT COUNT(*) AS total
+                    FROM voitures
+                """;
+
+        try (
+                Connection con = DBConnection.getConnection();
+                PreparedStatement ps = con.prepareStatement(sql);
+                ResultSet rs = ps.executeQuery()
+        ) {
+
+            if (rs.next()) {
+                return rs.getInt("total");
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return 0;
+    }
+
+    //    guest
+    public List<Voiture> getAvailableCars() {
+
+        List<Voiture> list = new ArrayList<>();
+
+        String sql = """
+                    SELECT *
+                    FROM voitures
+                    WHERE statut='Disponible'
+                """;
+
+        try (Connection cn = DBConnection.getConnection();
+             PreparedStatement ps = cn.prepareStatement(sql);
+             ResultSet rs = ps.executeQuery()) {
+
+            while (rs.next()) {
+
+                Voiture v = new Voiture();
+
+                v.setId(rs.getInt("id"));
+                v.setMarque(rs.getString("marque"));
+                v.setModele(rs.getString("modele"));
+                v.setPrixJour(rs.getDouble("prix_jour"));
+                v.setImagePath(rs.getString("image_path"));
+
+                list.add(v);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return list;
     }
 }

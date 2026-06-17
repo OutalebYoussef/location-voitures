@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml"
+            fx:controller="controllers.guest.GuestController">
+
+    <!-- HEADER -->
+    <top>
+        <HBox spacing="15"
+              alignment="CENTER_RIGHT"
+              style="-fx-background-color:#2c3e50;-fx-padding:15;">
+
+            <Label text="🚗 Location de Voitures"
+                   style="-fx-text-fill:white;
+                          -fx-font-size:22px;
+                          -fx-font-weight:bold;"
+                   HBox.hgrow="ALWAYS"/>
+
+            <Button text="Connexion"
+                    fx:id="btnLogin"
+                    style="-fx-background-color:#3498db;
+                           -fx-text-fill:white;"/>
+
+            <Button text="Inscription"
+                    fx:id="btnRegister"
+                    style="-fx-background-color:#2ecc71;
+                           -fx-text-fill:white;"/>
+        </HBox>
+    </top>
+
+    <!-- CONTENT -->
+    <center>
+
+        <VBox spacing="20"
+              style="-fx-padding:20;">
+
+            <!-- HERO -->
+            <VBox spacing="10"
+                  alignment="CENTER"
+                  style="-fx-background-color:#ecf0f1;
+                         -fx-padding:30;
+                         -fx-background-radius:10;">
+
+                <Label text="Bienvenue chez Location Auto"
+                       style="-fx-font-size:28px;
+                              -fx-font-weight:bold;"/>
+
+                <Label text="Découvrez nos voitures disponibles et réservez en quelques clics."
+                       style="-fx-font-size:14px;"/>
+
+            </VBox>
+
+            <Label text="Voitures disponibles"
+                   style="-fx-font-size:20px;
+                          -fx-font-weight:bold;"/>
+
+            <ScrollPane fitToWidth="true">
+
+                <FlowPane fx:id="carsContainer"
+                          hgap="20"
+                          vgap="20">
+
+                    <padding>
+                        <Insets top="10" right="10" bottom="10" left="10"/>
+                    </padding>
+
+                </FlowPane>
+
+            </ScrollPane>
+
+        </VBox>
+
+    </center>
+
+</BorderPane>

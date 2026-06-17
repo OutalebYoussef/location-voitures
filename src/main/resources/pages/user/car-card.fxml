@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
-      fx:controller="controllers.CarCardController"
+      fx:controller="controllers.user.CarCardController"
       spacing="0"
       prefWidth="220"
       styleClass="car-card">

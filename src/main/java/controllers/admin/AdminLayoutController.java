@@ -1,4 +1,4 @@
-package controllers;
+package controllers.admin;
 
 import com.example.location.Main;
 import javafx.event.ActionEvent;
@@ -6,12 +6,13 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
-public class AdminDashboardController {
+public class AdminLayoutController {
 
     @FXML
-    private VBox contentPane;
+    private StackPane contentPane;
 
     @FXML
     public void showDashboard() {
@@ -26,6 +27,11 @@ public class AdminDashboardController {
     @FXML
     public void showUsers() {
         loadPage("/pages/admin/users/users.fxml");
+    }
+
+    @FXML
+    private void showReservations() {
+        loadPage("/pages/admin/reservations/reservations.fxml");
     }
 
     private void loadPage(String path) {

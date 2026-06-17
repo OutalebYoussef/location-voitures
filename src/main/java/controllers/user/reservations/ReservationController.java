@@ -1,4 +1,4 @@
-package controllers.reservations;
+package controllers.user.reservations;
 
 import dao.ReservationDAO;
 import javafx.fxml.FXML;
@@ -7,8 +7,6 @@ import javafx.stage.Stage;
 import model.Reservation;
 import model.Voiture;
 import utils.Session;
-
-import java.sql.Timestamp;
 
 public class ReservationController {
 

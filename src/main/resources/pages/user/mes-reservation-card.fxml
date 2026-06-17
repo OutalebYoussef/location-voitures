@@ -3,7 +3,7 @@
 <?import javafx.scene.control.Label?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
-      fx:controller="controllers.reservations.ReservationCardController"
+      fx:controller="controllers.user.reservations.ReservationCardController"
       spacing="10"
       prefWidth="260"
       styleClass="card">
