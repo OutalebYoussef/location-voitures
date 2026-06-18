@@ -20,7 +20,6 @@ public class LoginController {
     @FXML
     private PasswordField txtPassword;
 
-
     @FXML
     public void login() {
 
@@ -71,11 +70,31 @@ public class LoginController {
 
     @FXML
     private void goToHome(MouseEvent event) {
-
         try {
 
             Parent root = FXMLLoader.load(
                     getClass().getResource("/pages/guest/index.fxml")
+            );
+
+            Stage stage = (Stage) ((Node) event.getSource())
+                    .getScene()
+                    .getWindow();
+
+            Scene scene = new Scene(root, 1200, 700);
+
+            stage.setScene(scene);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void ouvrirInscription(MouseEvent event) {
+        try {
+
+            Parent root = FXMLLoader.load(
+                    getClass().getResource("/pages/register.fxml")
             );
 
             Stage stage = (Stage) ((Node) event.getSource())
