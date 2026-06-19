@@ -38,49 +38,29 @@ public class GuestController {
 
     private void loadCars() {
 
+        carsContainer.getChildren().clear();
+
         for (Voiture voiture : voitureDAO.getAvailableCars()) {
 
-            VBox card = new VBox(10);
+            try {
 
-            card.setPrefWidth(220);
+                FXMLLoader loader = new FXMLLoader(
+                        getClass().getResource("/pages/guest/cars-card.fxml")
+                );
 
-            card.setStyle("""
-                    -fx-background-color:white;
-                    -fx-padding:15;
-                    -fx-background-radius:10;
-                    -fx-border-color:#ddd;
-                    -fx-border-radius:10;
-                    """);
+                VBox card = loader.load();
 
-            Label marque = new Label(
-                    voiture.getMarque() + " " + voiture.getModele()
-            );
+                CarCardController controller = loader.getController();
 
-            marque.setStyle("-fx-font-size:16px;-fx-font-weight:bold;");
+                controller.setData(voiture);
 
-            Label prix = new Label(
-                    voiture.getPrixJour() + " DH / jour"
-            );
+                carsContainer.getChildren().add(card);
 
-            Button reserve = new Button("Réserver");
-
-            reserve.setStyle("""
-                    -fx-background-color:#3498db;
-                    -fx-text-fill:white;
-                    """);
-
-            reserve.setOnAction(e -> openPage("/pages/login.fxml"));
-
-            card.getChildren().addAll(
-                    marque,
-                    prix,
-                    reserve
-            );
-
-            carsContainer.getChildren().add(card);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
-
     private void openPage(String fxml) {
 
         try {

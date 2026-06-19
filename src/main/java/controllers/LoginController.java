@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 public class LoginController {
 
     @FXML
-    private TextField txtUsername;
+    private TextField txtEmail;
 
     @FXML
     private PasswordField txtPassword;
@@ -23,17 +23,17 @@ public class LoginController {
     @FXML
     public void login() {
 
-        String username = txtUsername.getText();
+        String email = txtEmail.getText();
         String password = txtPassword.getText();
 
         UserDAO userDAO = new UserDAO();
 
-        String role = userDAO.login(username, password);
+        String role = userDAO.login(email, password);
 
         try {
 
             Stage stage =
-                    (Stage) txtUsername.getScene().getWindow();
+                    (Stage) txtEmail.getScene().getWindow();
 
             if ("admin".equalsIgnoreCase(role)) {
 
@@ -43,7 +43,7 @@ public class LoginController {
                         )
                 );
 
-                  txtUsername.getScene().setRoot(loader.load());
+                  txtEmail.getScene().setRoot(loader.load());
 
             } else if ("user".equalsIgnoreCase(role)) {
 
@@ -53,13 +53,13 @@ public class LoginController {
                         )
                 );
 
-                  txtUsername.getScene().setRoot(loader.load());
+                  txtEmail.getScene().setRoot(loader.load());
 
             } else {
 
                 Alert alert = new Alert(Alert.AlertType.ERROR);
                 alert.setHeaderText(null);
-                alert.setContentText("Username ou Password incorrect !");
+                alert.setContentText("Email ou Password incorrect !");
                 alert.showAndWait();
             }
 

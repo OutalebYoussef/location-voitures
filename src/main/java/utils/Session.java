@@ -5,6 +5,8 @@ public class Session {
     private static int userId;
     private static String username;
     private static String role;
+    private static String email;
+    private static String numPhone;
 
     public static int getUserId() {
         return userId;
@@ -28,5 +30,21 @@ public class Session {
 
     public static void setRole(String role) {
         Session.role = role;
+    }
+
+    public static String getEmail() {
+        return email;
+    }
+
+    public static void setEmail(String email) {
+        Session.email = email;
+    }
+
+    public static String getNumPhone() {
+        return numPhone;
+    }
+
+    public static void setNumPhone(String numPhone) {
+        Session.numPhone = numPhone;
     }
 }

@@ -43,7 +43,7 @@
                       -fx-font-weight:bold;
                       -fx-text-fill:white;"/>
 
-                <Label text="Voiture"
+                <Label text=""
                        style="-fx-font-size:16px;
                       -fx-font-weight:bold;
                       -fx-text-fill:#3B82F6;"/>
@@ -138,7 +138,6 @@
 
         </ImageView>
 
-
         <Region minHeight="16"/>
 
         <!-- Title -->
@@ -163,7 +162,7 @@
                      -fx-background-radius: 9;
                      -fx-padding: 0 12 0 12;">
             <Label text="✉" style="-fx-font-size: 14px; -fx-text-fill: #CBD5E1;"/>
-            <TextField fx:id="txtUsername"
+            <TextField fx:id="txtEmail"
                        promptText="votre@email.com"
                        HBox.hgrow="ALWAYS"
                        style="-fx-background-color: transparent;
@@ -232,7 +231,7 @@
             <Label text="Pas encore de compte ?"
                    style="-fx-font-size: 12.5px; -fx-text-fill: #94A3B8;"/>
             <Button text="S'inscrire"
-                    onAction="#ouvrirInscription"
+                    onMouseClicked="#ouvrirInscription"
                     style="-fx-background-color: transparent;
                            -fx-border-width: 0;
                            -fx-text-fill: #2563EB;

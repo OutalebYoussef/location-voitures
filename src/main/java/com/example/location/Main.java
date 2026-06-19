@@ -23,7 +23,7 @@ public class Main extends Application {
 
         Parent root = loader.load();
 
-        Scene scene = new Scene(root, 700, 450);
+        Scene scene = new Scene(root, 1200, 700);
 
         scene.getStylesheets().add(BootstrapFX.bootstrapFXStylesheet());
 

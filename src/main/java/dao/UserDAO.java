@@ -11,16 +11,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class UserDAO {
-    public String login(String username, String password) {
+    public String login(String email, String password) {
 
-        String sql = "SELECT * FROM users WHERE username=? AND password=?";
+        String sql = "SELECT * FROM users WHERE email=? AND password=?";
 
         try (
                 Connection con = DBConnection.getConnection();
                 PreparedStatement ps = con.prepareStatement(sql)
         ) {
 
-            ps.setString(1, username);
+            ps.setString(1, email);
             ps.setString(2, password);
 
             ResultSet rs = ps.executeQuery();
@@ -29,6 +29,8 @@ public class UserDAO {
                 Session.setUserId(rs.getInt("id"));
                 Session.setUsername(rs.getString("username"));
                 Session.setRole(rs.getString("role"));
+                Session.setEmail(rs.getString("email"));
+                Session.setNumPhone(rs.getString("num_phone"));
 
                 return rs.getString("role");
             }
@@ -195,6 +197,30 @@ public class UserDAO {
             ps.setInt(1, id);
 
             return ps.executeUpdate() > 0;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return false;
+    }
+
+    public boolean emailExists(String email) {
+
+        String sql = "SELECT COUNT(*) FROM users WHERE email = ?";
+
+        try (
+                Connection con = DBConnection.getConnection();
+                PreparedStatement ps = con.prepareStatement(sql);
+        ) {
+
+            ResultSet rs = ps.executeQuery();
+            ps.setString(1, email);
+
+
+            if (rs.next()) {
+                return rs.getInt(1) > 0;
+            }
 
         } catch (Exception e) {
             e.printStackTrace();
