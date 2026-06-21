@@ -18,6 +18,12 @@ public class EditUserController {
     @FXML
     private ComboBox<String> roleField;
 
+    @FXML
+    private TextField emailField;
+
+    @FXML
+    private TextField phoneField;
+
     private User user;
     private UserController parent;
 
@@ -35,6 +41,8 @@ public class EditUserController {
         this.user = user;
 
         usernameField.setText(user.getUsername());
+        emailField.setText(user.getEmail());
+        phoneField.setText(user.getNumPhone());
         passwordField.setText(user.getPassword());
         roleField.setValue(user.getRole());
     }
@@ -46,11 +54,27 @@ public class EditUserController {
     @FXML
     public void save() {
 
-        user.setUsername(usernameField.getText());
-        user.setPassword(passwordField.getText());
+        if (usernameField.getText().trim().isEmpty()
+                || emailField.getText().trim().isEmpty()
+                || phoneField.getText().trim().isEmpty()
+                || passwordField.getText().trim().isEmpty()) {
+
+            new javafx.scene.control.Alert(
+                    javafx.scene.control.Alert.AlertType.WARNING,
+                    "Tous les champs sont obligatoires"
+            ).showAndWait();
+
+            return;
+        }
+
+        user.setUsername(usernameField.getText().trim());
+        user.setEmail(emailField.getText().trim());
+        user.setNumPhone(phoneField.getText().trim());
+        user.setPassword(passwordField.getText().trim());
         user.setRole(roleField.getValue());
 
         UserDAO dao = new UserDAO();
+
         dao.update(user);
 
         parent.refreshTable();

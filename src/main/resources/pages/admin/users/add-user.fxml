@@ -11,8 +11,18 @@
       spacing="12"
       alignment="CENTER">
 
-    <TextField fx:id="txtUsername"/>
-    <TextField fx:id="txtPassword"/>
+    <TextField fx:id="txtUsername"
+               promptText="Nom d'utilisateur"/>
+
+    <TextField fx:id="txtEmail"
+               promptText="Email"/>
+
+    <TextField fx:id="txtPhone"
+               promptText="Téléphone"/>
+
+    <TextField fx:id="txtPassword"
+               promptText="Mot de passe"/>
+
     <ComboBox fx:id="cmbRole"/>
 
     <Button text="Ajouter"

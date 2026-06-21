@@ -3,8 +3,19 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.Button?>
-<VBox spacing="10" alignment="CENTER" xmlns:fx="http://javafx.com/fxml"
+<?import javafx.scene.image.ImageView?>
+
+<VBox spacing="10" alignment="CENTER"
+      xmlns:fx="http://javafx.com/fxml"
       fx:controller="controllers.admin.voitures.EditVoitureController">
+
+    <ImageView fx:id="imagePreview"
+               fitWidth="180"
+               fitHeight="120"
+               preserveRatio="true"/>
+
+    <Button text="Choisir une image"
+            onAction="#chooseImage"/>
 
     <TextField fx:id="marqueField" promptText="Marque"/>
     <TextField fx:id="modeleField" promptText="Modele"/>
@@ -12,5 +23,6 @@
     <TextField fx:id="prixField" promptText="Prix/Jour"/>
     <TextField fx:id="statutField" promptText="Statut"/>
 
-    <Button text="Modifier" onAction="#save"/>
+    <Button text="Modifier"
+            onAction="#save"/>
 </VBox>

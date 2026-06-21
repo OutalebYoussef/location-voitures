@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : lun. 08 juin 2026 à 01:00
+-- Généré le : sam. 20 juin 2026 à 23:00
 -- Version du serveur : 10.4.32-MariaDB
 -- Version de PHP : 8.2.12
 
@@ -24,23 +24,54 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `reservations`
+--
+
+CREATE TABLE `reservations` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `voiture_id` int(11) NOT NULL,
+  `nb_jr` int(11) NOT NULL,
+  `montant_total` decimal(10,2) NOT NULL,
+  `date_debut` date NOT NULL,
+  `status` varchar(20) DEFAULT 'en attente',
+  `date_reservation` timestamp NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Déchargement des données de la table `reservations`
+--
+
+INSERT INTO `reservations` (`id`, `user_id`, `voiture_id`, `nb_jr`, `montant_total`, `date_debut`, `status`, `date_reservation`) VALUES
+(1, 2, 5, 2, 200.00, '2026-06-17', 'Refusée', '2026-06-16 23:58:36'),
+(2, 2, 4, 3, 300.00, '2026-06-18', 'Acceptée', '2026-06-17 12:29:09'),
+(3, 2, 5, 5, 500.00, '2026-06-19', 'Acceptée', '2026-06-17 14:45:21'),
+(4, 2, 2, 2, 1000.00, '2026-06-20', 'En attente', '2026-06-20 19:06:50');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `users`
 --
 
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(50) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `num_phone` varchar(20) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `role` varchar(20) DEFAULT NULL
+  `role` varchar(20) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `role`) VALUES
-(1, 'a', '1', 'ADMIN'),
-(2, 'user', '123456', 'USER');
+INSERT INTO `users` (`id`, `username`, `email`, `num_phone`, `password`, `role`, `created_at`, `updated_at`) VALUES
+(1, 'a', 'a@gmail.com', NULL, '1', 'ADMIN', '2026-06-17 22:56:27', '2026-06-20 13:28:47'),
+(2, 'y', 'u@gmail.com', '06213122332', '1', 'USER', '2026-06-17 22:56:27', '2026-06-20 18:37:29');
 
 -- --------------------------------------------------------
 
@@ -55,26 +86,35 @@ CREATE TABLE `voitures` (
   `matricule` varchar(20) NOT NULL,
   `prix_jour` double NOT NULL,
   `statut` varchar(20) DEFAULT 'Disponible',
-  `add_by` int(11) DEFAULT NULL
+  `add_by` int(11) DEFAULT NULL,
+  `image_path` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Déchargement des données de la table `voitures`
 --
 
-INSERT INTO `voitures` (`id`, `marque`, `modele`, `matricule`, `prix_jour`, `statut`, `add_by`) VALUES
-(2, 'bmw', 'ad', 'sdad', 500, 'Disponible', 1),
-(4, 'mer', 'tyr', 'www', 100, 'Disponible', 1);
+INSERT INTO `voitures` (`id`, `marque`, `modele`, `matricule`, `prix_jour`, `statut`, `add_by`, `image_path`) VALUES
+(2, 'bmw', 'ad', 'sdad', 500, 'Disponible', 1, 'C:\\Users\\hp\\Downloads\\cars\\339916_2019_BMW_8_Series.jpg'),
+(4, 'mer', 'tyr', 'www', 100, 'Disponible', 1, NULL),
+(5, 'dacia', '2022', 'www2165', 100, 'Disponible', 1, 'images\\1781654177204_782b44e3f0.jpg');
 
 --
 -- Index pour les tables déchargées
 --
 
 --
+-- Index pour la table `reservations`
+--
+ALTER TABLE `reservations`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Index pour la table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `email` (`email`);
 
 --
 -- Index pour la table `voitures`
@@ -88,6 +128,12 @@ ALTER TABLE `voitures`
 --
 
 --
+-- AUTO_INCREMENT pour la table `reservations`
+--
+ALTER TABLE `reservations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT pour la table `users`
 --
 ALTER TABLE `users`
@@ -97,7 +143,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT pour la table `voitures`
 --
 ALTER TABLE `voitures`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

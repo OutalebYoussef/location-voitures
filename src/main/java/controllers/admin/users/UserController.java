@@ -24,6 +24,12 @@ public class UserController {
     private TableColumn<User, String> colUsername;
 
     @FXML
+    private TableColumn<User, String> colEmail;
+
+    @FXML
+    private TableColumn<User, String> colPhone;
+
+    @FXML
     private TableColumn<User, String> colRole;
 
     @FXML
@@ -45,6 +51,12 @@ public class UserController {
 
         colUsername.setCellValueFactory(
                 new PropertyValueFactory<>("username"));
+
+        colEmail.setCellValueFactory(
+                new PropertyValueFactory<>("email"));
+
+        colPhone.setCellValueFactory(
+                new PropertyValueFactory<>("numPhone"));
 
         colRole.setCellValueFactory(
                 new PropertyValueFactory<>("role"));

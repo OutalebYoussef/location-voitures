@@ -45,13 +45,13 @@ public class UserDAO {
     public boolean register(User user) {
 
         String sql = """
-        INSERT INTO users
-        (username,email,num_phone,password,role)
-        VALUES(?,?,?,?,?)
-    """;
+                    INSERT INTO users
+                    (username,email,num_phone,password,role)
+                    VALUES(?,?,?,?,?)
+                """;
 
-        try(Connection cn = DBConnection.getConnection();
-            PreparedStatement ps = cn.prepareStatement(sql)) {
+        try (Connection cn = DBConnection.getConnection();
+             PreparedStatement ps = cn.prepareStatement(sql)) {
 
             ps.setString(1, user.getUsername());
             ps.setString(2, user.getEmail());
@@ -71,9 +71,9 @@ public class UserDAO {
     public boolean ajouter(User user) {
 
         String sql = """
-                INSERT INTO users
-                (username, password, role)
-                VALUES (?, ?, ?)
+                    INSERT INTO users
+                    (username,email,num_phone,password,role)
+                    VALUES (?,?,?,?,?)
                 """;
 
         try (
@@ -82,8 +82,10 @@ public class UserDAO {
         ) {
 
             ps.setString(1, user.getUsername());
-            ps.setString(2, user.getPassword());
-            ps.setString(3, user.getRole());
+            ps.setString(2, user.getEmail());
+            ps.setString(3, user.getNumPhone());
+            ps.setString(4, user.getPassword());
+            ps.setString(5, user.getRole());
 
             return ps.executeUpdate() > 0;
 
@@ -112,6 +114,8 @@ public class UserDAO {
 
                 user.setId(rs.getInt("id"));
                 user.setUsername(rs.getString("username"));
+                user.setEmail(rs.getString("email"));
+                user.setNumPhone(rs.getString("num_phone"));
                 user.setPassword(rs.getString("password"));
                 user.setRole(rs.getString("role"));
 
@@ -162,7 +166,11 @@ public class UserDAO {
 
         String sql = """
                 UPDATE users
-                SET username = ?, password = ?, role = ?
+                SET username = ?,
+                    email = ?,
+                    num_phone = ?,
+                    password = ?,
+                    role = ?
                 WHERE id = ?
                 """;
 
@@ -172,9 +180,11 @@ public class UserDAO {
         ) {
 
             ps.setString(1, user.getUsername());
-            ps.setString(2, user.getPassword());
-            ps.setString(3, user.getRole());
-            ps.setInt(4, user.getId());
+            ps.setString(2, user.getEmail());
+            ps.setString(3, user.getNumPhone());
+            ps.setString(4, user.getPassword());
+            ps.setString(5, user.getRole());
+            ps.setInt(6, user.getId());
 
             return ps.executeUpdate() > 0;
 
