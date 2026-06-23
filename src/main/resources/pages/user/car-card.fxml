@@ -2,47 +2,90 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
       fx:controller="controllers.user.CarCardController"
-      spacing="12"
-      prefWidth="260"
-      maxWidth="260"
-      style="-fx-background-color:white;
-             -fx-background-radius:14;
-             -fx-border-color:#E5E7EB;
-             -fx-border-radius:14;
-             -fx-effect:dropshadow(gaussian, rgba(0,0,0,0.12), 10,0,0,3);">
+      spacing="0"
+      prefWidth="250"
+      maxWidth="250"
+      style="-fx-background-color: white;
+             -fx-background-radius: 14;
+             -fx-border-color: #E9EEF4;
+             -fx-border-width: 1;
+             -fx-border-radius: 14;
+             -fx-effect: dropshadow(gaussian, rgba(15,27,45,0.07), 14, 0, 0, 3);">
 
-    <ImageView fx:id="imgCar"
-               fitWidth="260"
-               fitHeight="150"
-               preserveRatio="false"/>
+    <!-- ══════════════════════════════════════════
+         IMAGE + AVAILABILITY PILL
+    ══════════════════════════════════════════ -->
+    <StackPane minHeight="150" maxHeight="150"
+               style="-fx-background-color: linear-gradient(to bottom right, #1E293B, #334155);
+                      -fx-background-radius: 14 14 0 0;">
 
-    <VBox spacing="8" style="-fx-padding:15;">
+        <ImageView fx:id="imgCar"
+                   fitWidth="250"
+                   fitHeight="150"
+                   preserveRatio="false"/>
 
-        <Label fx:id="lblTitle"
-               style="-fx-font-size:18;
-                      -fx-font-weight:bold;
-                      -fx-text-fill:#1E293B;"/>
+        <!-- Availability pill — toggle text/style in the controller based on status -->
+        <Label fx:id="lblDisponibilite"
+               text="Disponible"
+               StackPane.alignment="TOP_LEFT"
+               style="-fx-font-size: 10px;
+                      -fx-font-weight: bold;
+                      -fx-background-color: #ECFDF5;
+                      -fx-text-fill: #047857;
+                      -fx-background-radius: 20;
+                      -fx-padding: 4 10;">
+            <StackPane.margin>
+                <Insets top="10" left="10"/>
+            </StackPane.margin>
+        </Label>
 
+    </StackPane>
 
-        <HBox spacing="5">
-            <Label text="Prix :"
-                   style="-fx-font-weight:bold;"/>
-            <Label fx:id="lblPrix"/>
+    <!-- ══════════════════════════════════════════
+         BODY
+    ══════════════════════════════════════════ -->
+    <VBox spacing="10" style="-fx-padding: 15 16 16 16;">
+
+        <VBox spacing="3">
+            <Label fx:id="lblTitle"
+                   text="BMW Série 5"
+                   style="-fx-font-size: 16px;
+                          -fx-font-weight: bold;
+                          -fx-text-fill: #0F172A;"/>
+
+            <HBox spacing="5" alignment="CENTER_LEFT">
+                <Label text="⛽" style="-fx-font-size: 11px; -fx-text-fill: #94A3B8;"/>
+                <Label fx:id="lblSubtitle"
+                       text="Berline · Automatique"
+                       style="-fx-font-size: 11.5px; -fx-text-fill: #94A3B8;"/>
+            </HBox>
+        </VBox>
+
+        <HBox spacing="4" alignment="BASELINE_LEFT">
+            <Label fx:id="lblPrix"
+                   text="450 DH"
+                   style="-fx-font-size: 19px; -fx-font-weight: bold; -fx-text-fill: #1D4ED8;"/>
+            <Label text="/ jour"
+                   style="-fx-font-size: 12px; -fx-text-fill: #94A3B8;"/>
         </HBox>
 
-        <Region VBox.vgrow="ALWAYS"/>
+        <Region minHeight="4"/>
 
         <Button onAction="#reserver"
-                text="Réserver"
+                text="📅  Réserver"
                 maxWidth="Infinity"
-                style="-fx-background-color:#2563EB;
-                       -fx-text-fill:white;
-                       -fx-font-weight:bold;
-                       -fx-background-radius:8;
-                       -fx-cursor:hand;"/>
+                style="-fx-background-color: #2563EB;
+                       -fx-text-fill: white;
+                       -fx-font-size: 13.5px;
+                       -fx-font-weight: bold;
+                       -fx-background-radius: 9;
+                       -fx-padding: 10 0;
+                       -fx-cursor: hand;
+                       -fx-effect: dropshadow(gaussian, rgba(37,99,235,0.28), 10, 0, 0, 3);"/>
 
     </VBox>
 

@@ -2,18 +2,34 @@
 
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Label?>
 
 <ScrollPane xmlns:fx="http://javafx.com/fxml"
             fx:controller="controllers.user.reservations.MesReservationsController"
-            fitToWidth="true">
+            fitToWidth="true"
+            style="-fx-background-color: #F0F4F8; -fx-background: #F0F4F8;">
 
     <content>
 
-        <FlowPane fx:id="container"
-                  hgap="20"
-                  vgap="20"
-                  prefWrapLength="1000"
-                  style="-fx-padding:20;"/>
+        <VBox style="-fx-background-color: #F0F4F8;">
+
+            <!-- Page header -->
+            <VBox spacing="4" style="-fx-padding: 28 28 8 28;">
+                <Label text="Mes Réservations"
+                       style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #0F172A;"/>
+                <Label text="Retrouvez l'historique de vos locations"
+                       style="-fx-font-size: 13px; -fx-text-fill: #94A3B8;"/>
+            </VBox>
+
+            <!-- Cards grid -->
+            <FlowPane fx:id="container"
+                      hgap="18"
+                      vgap="18"
+                      prefWrapLength="1000"
+                      style="-fx-padding: 16 28 28 28;"/>
+
+        </VBox>
 
     </content>
 

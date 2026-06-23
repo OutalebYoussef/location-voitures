@@ -130,6 +130,15 @@ public class VoitureController {
             private final Button deleteBtn = new Button("Supprimer");
 
             {
+                deleteBtn.setStyle("""
+                            -fx-background-color: #ff0000;
+                            -fx-text-fill: white;
+                            -fx-font-size: 13;
+                            -fx-font-weight: bold;
+                            -fx-background-radius: 8;
+                            -fx-padding: 8 18;
+                            -fx-cursor: hand;
+                        """);
                 deleteBtn.setOnAction(event -> {
                     Voiture voiture = getTableView().getItems().get(getIndex());
                     deleteVoiture(voiture);
@@ -153,6 +162,15 @@ public class VoitureController {
             private final Button editBtn = new Button("Modifier");
 
             {
+                editBtn.setStyle("""
+                            -fx-background-color: #2ecc71;
+                            -fx-text-fill: white;
+                            -fx-font-size: 13;
+                            -fx-font-weight: bold;
+                            -fx-background-radius: 8;
+                            -fx-padding: 8 18;
+                            -fx-cursor: hand;
+                        """);
                 editBtn.setOnAction(event -> {
                     Voiture voiture = getTableView().getItems().get(getIndex());
                     openEditModal(voiture);

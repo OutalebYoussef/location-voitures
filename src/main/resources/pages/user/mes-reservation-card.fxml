@@ -1,24 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.control.Label?>
+<?import javafx.geometry.Insets?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
       fx:controller="controllers.user.reservations.ReservationCardController"
-      spacing="10"
-      prefWidth="260"
-      styleClass="card">
+      spacing="0"
+      prefWidth="250"
+      style="-fx-background-color: white;
+             -fx-background-radius: 14;
+             -fx-border-color: #E9EEF4;
+             -fx-border-width: 1;
+             -fx-border-radius: 14;
+             -fx-effect: dropshadow(gaussian, rgba(15,27,45,0.07), 14, 0, 0, 3);">
 
-    <ImageView fx:id="image"
-               fitWidth="240"
-               fitHeight="150"
-               preserveRatio="true"/>
+    <!-- ══════════════════════════════════════════
+         IMAGE + STATUS PILL
+    ══════════════════════════════════════════ -->
+    <StackPane minHeight="140" maxHeight="140"
+               style="-fx-background-color: linear-gradient(to bottom right, #1E293B, #334155);
+                      -fx-background-radius: 14 14 0 0;">
 
-    <Label fx:id="nomVoiture"/>
+        <ImageView fx:id="image"
+                   fitWidth="250"
+                   fitHeight="140"
+                   preserveRatio="true"/>
 
-    <Label fx:id="jours"/>
+        <!-- Status pill — set fx:id style/text dynamically in the controller -->
+        <Label fx:id="status"
+               text="Confirmée"
+               StackPane.alignment="TOP_RIGHT"
+               style="-fx-font-size: 10.5px;
+                      -fx-font-weight: bold;
+                      -fx-background-color: #ECFDF5;
+                      -fx-text-fill: #047857;
+                      -fx-background-radius: 20;
+                      -fx-padding: 4 10;">
+            <StackPane.margin>
+                <Insets top="10" right="10"/>
+            </StackPane.margin>
+        </Label>
 
-    <Label fx:id="montant"/>
+    </StackPane>
 
-    <Label fx:id="status"/>
+    <!-- ══════════════════════════════════════════
+         BODY
+    ══════════════════════════════════════════ -->
+    <VBox spacing="8" style="-fx-padding: 14 16 16 16;">
+
+        <Label fx:id="nomVoiture"
+               text="BMW Série 5"
+               style="-fx-font-size: 14.5px; -fx-font-weight: bold; -fx-text-fill: #0F172A;"/>
+
+        <HBox spacing="6" alignment="CENTER_LEFT">
+            <Label text="📅" style="-fx-font-size: 12px; -fx-text-fill: #94A3B8;"/>
+            <Label fx:id="jours"
+                   text="5 jours de location"
+                   style="-fx-font-size: 12px; -fx-text-fill: #64748B;"/>
+        </HBox>
+
+        <!-- Divider -->
+        <Region minHeight="1" maxHeight="1"
+                style="-fx-background-color: #F1F5F9;"/>
+
+        <HBox alignment="BASELINE_LEFT" spacing="6">
+            <Label text="Total"
+                   style="-fx-font-size: 11.5px; -fx-text-fill: #94A3B8;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label fx:id="montant"
+                   text="2 250 DH"
+                   style="-fx-font-size: 17px; -fx-font-weight: bold; -fx-text-fill: #1D4ED8;"/>
+        </HBox>
+
+    </VBox>
 
 </VBox>

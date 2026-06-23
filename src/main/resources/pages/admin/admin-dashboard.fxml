@@ -12,7 +12,7 @@
       style="-fx-background-color: #f4f6f9; -fx-padding: 24;">
 
 
-    <Label text="Dashboard"
+    <Label text="Tableau de bord"
            style="-fx-font-size:24px;-fx-font-weight:bold;"/>
 
     <HBox spacing="6">

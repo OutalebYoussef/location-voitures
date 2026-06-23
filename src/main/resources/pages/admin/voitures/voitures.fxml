@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.HBox?>
 <VBox xmlns:fx="http://javafx.com/fxml"
       fx:controller="controllers.admin.voitures.VoitureController"
-      fx:id="contentPane">
+      fx:id="contentPane" stylesheets="@/css/styles.css">
 
     <HBox spacing="10" alignment="CENTER_LEFT"
           style="-fx-background-color: white;

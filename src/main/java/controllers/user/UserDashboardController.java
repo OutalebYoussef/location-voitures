@@ -17,6 +17,11 @@ public class UserDashboardController {
     private StackPane content;
 
     @FXML
+    public void initialize() {
+        ouvrirVoitures();
+    }
+
+    @FXML
     private void ouvrirVoitures() {
         navigateTo("/pages/user/voitures.fxml");
     }

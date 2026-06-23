@@ -42,6 +42,7 @@ public class MesReservationsController implements Initializable {
                         loader.getController();
 
                 controller.setReservation(reservation);
+                controller.setStatus(reservation.getStatus());
 
                 container.getChildren().add(card);
 

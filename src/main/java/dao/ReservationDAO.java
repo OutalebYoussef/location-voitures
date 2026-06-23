@@ -96,6 +96,8 @@ public class ReservationDAO {
         String sql = """
         SELECT r.*,
                u.username AS client,
+               u.email,
+               u.num_phone,
                v.marque,
                v.modele
         FROM reservations r
@@ -120,6 +122,8 @@ public class ReservationDAO {
                 r.setNbJr(rs.getInt("nb_jr"));
                 r.setMontantTotal(rs.getDouble("montant_total"));
                 r.setStatus(rs.getString("status"));
+                r.setEmail(rs.getString("email"));
+                r.setNumPhone(rs.getString("num_phone"));
 
                 list.add(r);
             }

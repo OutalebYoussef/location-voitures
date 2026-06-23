@@ -1,17 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.FlowPane?>
 
 <VBox xmlns:fx="http://javafx.com/fxml"
-      fx:controller="controllers.user.UserVoitureController">
+      fx:controller="controllers.user.UserVoitureController"
+      style="-fx-background-color: #F0F4F8;">
 
-    <!-- Cars grid -->
-    <ScrollPane fitToWidth="true" VBox.vgrow="ALWAYS">
+    <!-- ══════════════════════════════════════════
+         PAGE HEADER
+    ══════════════════════════════════════════ -->
+    <HBox alignment="CENTER_LEFT" style="-fx-padding: 28 28 16 28;">
+
+        <VBox spacing="4">
+            <Label text="Nos Voitures"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #0F172A;"/>
+            <Label text="Trouvez le véhicule idéal pour votre trajet"
+                   style="-fx-font-size: 13px; -fx-text-fill: #94A3B8;"/>
+        </VBox>
+
+        <Region HBox.hgrow="ALWAYS"/>
+
+        <!-- Search box -->
+        <HBox alignment="CENTER_LEFT" spacing="8"
+              style="-fx-background-color: white;
+                     -fx-border-color: #E2E8F0;
+                     -fx-border-width: 1.5;
+                     -fx-border-radius: 9;
+                     -fx-background-radius: 9;
+                     -fx-padding: 0 12;">
+            <Label text="🔍" style="-fx-font-size: 12px; -fx-text-fill: #CBD5E1;"/>
+            <TextField fx:id="txtSearch"
+                       promptText="Rechercher..."
+                       style="-fx-background-color: transparent;
+                              -fx-border-width: 0;
+                              -fx-font-size: 12.5px;
+                              -fx-text-fill: #1E293B;
+                              -fx-prompt-text-fill: #CBD5E1;
+                              -fx-padding: 8 6;
+                              -fx-pref-width: 180;"/>
+        </HBox>
+
+    </HBox>
+
+    <!-- ══════════════════════════════════════════
+         CARS GRID
+    ══════════════════════════════════════════ -->
+    <ScrollPane fitToWidth="true"
+                VBox.vgrow="ALWAYS"
+                style="-fx-background-color: #F0F4F8; -fx-background: #F0F4F8;">
         <FlowPane fx:id="carsContainer"
-                  hgap="16"
-                  vgap="16"
+                  hgap="18"
+                  vgap="18"
                   prefWrapLength="1100"
-                  style="-fx-padding: 24;"/>
+                  style="-fx-padding: 4 28 28 28;"/>
     </ScrollPane>
 
 </VBox>

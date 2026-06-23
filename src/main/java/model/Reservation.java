@@ -18,11 +18,13 @@ public class Reservation {
     private String modele;
     private String imagePath;
     private String clientName;
+    private String email;
+    private String numPhone;
 
     public Reservation() {
     }
 
-    public Reservation(int id, int userId, int voitureId, int nbJr, String status, Timestamp dateReservation, LocalDate dateDebut, double montantTotal, String username, String voiture, String marque, String modele, String imagePath, String clientName) {
+    public Reservation(int id, int userId, int voitureId, int nbJr, String status, Timestamp dateReservation, LocalDate dateDebut, double montantTotal, String username, String voiture, String marque, String modele, String imagePath, String clientName, String email, String numPhone) {
         this.id = id;
         this.userId = userId;
         this.voitureId = voitureId;
@@ -37,6 +39,8 @@ public class Reservation {
         this.modele = modele;
         this.imagePath = imagePath;
         this.clientName = clientName;
+        this.email = email;
+        this.numPhone = numPhone;
     }
 
     public int getId() {
@@ -149,5 +153,21 @@ public class Reservation {
 
     public void setClientName(String clientName) {
         this.clientName = clientName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getNumPhone() {
+        return numPhone;
+    }
+
+    public void setNumPhone(String numPhone) {
+        this.numPhone = numPhone;
     }
 }

@@ -42,4 +42,16 @@ public class ReservationCardController {
             ));
         }
     }
+
+    public void setStatus(String value) {
+        status.setText(value);
+        switch (value) {
+            case "Acceptée" ->
+                    status.setStyle("-fx-background-color:#ECFDF5; -fx-text-fill:#047857; -fx-background-radius:20; -fx-padding:4 10; -fx-font-size:10.5px; -fx-font-weight:bold;");
+            case "En attente" ->
+                    status.setStyle("-fx-background-color:#FFFBEB; -fx-text-fill:#B45309; -fx-background-radius:20; -fx-padding:4 10; -fx-font-size:10.5px; -fx-font-weight:bold;");
+            case "Refusée" ->
+                    status.setStyle("-fx-background-color:#FEF2F2; -fx-text-fill:#DC2626; -fx-background-radius:20; -fx-padding:4 10; -fx-font-size:10.5px; -fx-font-weight:bold;");
+        }
+    }
 }

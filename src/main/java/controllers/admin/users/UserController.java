@@ -68,6 +68,16 @@ public class UserController {
             private final Button deleteBtn = new Button("Supprimer");
 
             {
+                deleteBtn.setStyle("""
+                            -fx-background-color: #ff0000;
+                            -fx-text-fill: white;
+                            -fx-font-size: 13;
+                            -fx-font-weight: bold;
+                            -fx-background-radius: 8;
+                            -fx-padding: 8 18;
+                            -fx-cursor: hand;
+                        """);
+
                 deleteBtn.setOnAction(event -> {
                     User user = getTableView().getItems().get(getIndex());
                     deleteUser(user);
@@ -77,7 +87,6 @@ public class UserController {
             @Override
             protected void updateItem(Void item, boolean empty) {
                 super.updateItem(item, empty);
-
                 setGraphic(empty ? null : deleteBtn);
             }
         });
@@ -87,6 +96,16 @@ public class UserController {
             private final Button editBtn = new Button("Modifier");
 
             {
+                editBtn.setStyle("""
+                            -fx-background-color: #2ecc71;
+                            -fx-text-fill: white;
+                            -fx-font-size: 13;
+                            -fx-font-weight: bold;
+                            -fx-background-radius: 8;
+                            -fx-padding: 8 18;
+                            -fx-cursor: hand;
+                        """);
+
                 editBtn.setOnAction(event -> {
                     User user = getTableView().getItems().get(getIndex());
                     openEditModal(user);
@@ -96,7 +115,6 @@ public class UserController {
             @Override
             protected void updateItem(Void item, boolean empty) {
                 super.updateItem(item, empty);
-
                 setGraphic(empty ? null : editBtn);
             }
         });

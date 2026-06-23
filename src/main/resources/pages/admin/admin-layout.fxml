@@ -45,11 +45,11 @@
                    style="-fx-font-size: 10.5px; -fx-font-weight: bold; -fx-text-fill: rgba(255,255,255,0.3); -fx-padding: 0 10 8 10;"/>
 
             <!-- Nav items -->
-            <Button text="🏠  Dashboard"
+            <Button text="🏠  Tableau de bord"
                     maxWidth="Infinity"
                     onAction="#showDashboard"
                     style="-fx-background-color: transparent;
-                           -fx-text-fill: white;
+                           -fx-text-fill: rgba(255,255,255,0.62);
                            -fx-font-size: 13.5px;
                            -fx-font-weight: bold;
                            -fx-background-radius: 8;

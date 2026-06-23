@@ -21,6 +21,12 @@ public class ReservationController {
     private TableColumn<Reservation, String> colClient;
 
     @FXML
+    private TableColumn<Reservation, String> colClientNum;
+
+    @FXML
+    private TableColumn<Reservation, String> colClientEmail;
+
+    @FXML
     private TableColumn<Reservation, String> colVoiture;
 
     @FXML
@@ -78,6 +84,16 @@ public class ReservationController {
         colClient.setCellValueFactory(cell ->
                 new SimpleStringProperty(
                         cell.getValue().getClientName()
+                ));
+
+        colClientNum.setCellValueFactory(cell ->
+                new SimpleStringProperty(
+                        cell.getValue().getNumPhone()
+                ));
+
+        colClientEmail.setCellValueFactory(cell ->
+                new SimpleStringProperty(
+                        cell.getValue().getEmail()
                 ));
 
         colVoiture.setCellValueFactory(cell ->

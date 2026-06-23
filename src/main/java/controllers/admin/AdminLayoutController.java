@@ -15,6 +15,11 @@ public class AdminLayoutController {
     private StackPane contentPane;
 
     @FXML
+    public void initialize() {
+        showDashboard();
+    }
+
+    @FXML
     public void showDashboard() {
         loadPage("/pages/admin/admin-dashboard.fxml");
     }
